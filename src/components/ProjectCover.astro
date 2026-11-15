@@ -6,8 +6,9 @@ interface Props {
   motif: 'fiber' | 'map' | 'plan';
   cover?: { src: string; alt: string };
   link?: { href: string; label: string };
+  showPlaceholderLabel?: boolean;
 }
-const { projectId, motif, cover, link } = Astro.props;
+const { projectId, motif, cover, link, showPlaceholderLabel = true } = Astro.props;
 const CoverElement = link ? 'a' : 'div';
 const label = { fiber: 'Mérési fotó helye', map: 'Térképexport helye', plan: 'Tervrajz helye' }[motif];
 ---
@@ -17,7 +18,7 @@ const label = { fiber: 'Mérési fotó helye', map: 'Térképexport helye', plan
       <div class="cover-art" aria-hidden="true">
         <i></i><i></i><i></i><i></i><i></i>
       </div>
-      <span class="cover-label">{label}</span>
+      {showPlaceholderLabel && <span class="cover-label">{label}</span>}
     </>
   )}
 </CoverElement>
