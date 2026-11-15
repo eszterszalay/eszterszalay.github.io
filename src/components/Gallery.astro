@@ -92,21 +92,32 @@ const { projectId, title, items, fitViewport, desktopHeight, uniformPreviews } =
       const dialog = this.querySelector('dialog')!;
       const full = dialog.querySelector<HTMLImageElement>('[data-full]')!;
       const viewport = dialog.querySelector<HTMLElement>('.dialog-viewport')!;
+      const stage = this.querySelector<HTMLElement>('.gallery-slides')!;
+      const previews = slides.map((slide) => slide.querySelector('.gallery-image, .gallery-placeholder'));
       let index = 0;
+      const alignMobileControls = () => {
+        const preview = previews[index]?.getBoundingClientRect();
+        if (preview?.height) {
+          stage.style.setProperty('--gallery-mobile-center', `${preview.top + preview.height / 2 - stage.getBoundingClientRect().top}px`);
+        }
+      };
       const show = (next: number) => {
         index = (next + slides.length) % slides.length;
         slides.forEach((slide, position) => { slide.hidden = position !== index; });
         if (count) count.textContent = `${index + 1} / ${slides.length}`;
+        if (controls) alignMobileControls();
       };
       if (controls) controls.hidden = false;
       show(0);
       this.dataset.ready = '';
-      if (this.hasAttribute('data-fit-viewport')) {
-        const reference = slides[0]?.querySelector<HTMLImageElement>('.gallery-image img');
-        const stage = this.querySelector('.gallery-slides');
+      if (controls) {
+        const reference = this.hasAttribute('data-fit-viewport')
+          ? slides[0]?.querySelector<HTMLImageElement>('.gallery-image img')
+          : undefined;
         const compactImages = [...this.querySelectorAll<HTMLImageElement>('[data-compact-caption] img')];
-        if (reference && stage) {
-          this.alignmentObserver = new ResizeObserver(() => {
+        this.alignmentObserver = new ResizeObserver(() => {
+          alignMobileControls();
+          if (reference) {
             const bounds = reference.getBoundingClientRect();
             if (!bounds.height) return;
             const center = bounds.top + bounds.height / 2 - stage.getBoundingClientRect().top;
@@ -114,11 +125,13 @@ const { projectId, title, items, fitViewport, desktopHeight, uniformPreviews } =
             for (const image of compactImages) {
               image.style.setProperty('--gallery-preview-height', `${image.offsetHeight}px`);
             }
-          });
-          this.alignmentObserver.observe(reference);
-          this.alignmentObserver.observe(stage);
-          compactImages.forEach((image) => this.alignmentObserver?.observe(image));
-        }
+          }
+        });
+        this.alignmentObserver.observe(stage);
+        if (reference) this.alignmentObserver.observe(reference);
+        [...previews, ...compactImages].forEach((element) => {
+          if (element) this.alignmentObserver?.observe(element);
+        });
       }
       this.querySelector('[data-prev]')?.addEventListener('click', () => show(index - 1));
       this.querySelector('[data-next]')?.addEventListener('click', () => show(index + 1));
