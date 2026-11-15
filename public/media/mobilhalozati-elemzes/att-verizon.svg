@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="175" viewBox="0 0 680 175" role="img" aria-labelledby="title desc">
+<title id="title">AT&amp;T és Verizon sikeressége közös H3-cellákban</title>
+<desc id="desc">AT&amp;T: Sikeresség 0.673670805475963; Verizon: Sikeresség 0.308245711123409</desc>
+<metadata>{&quot;source&quot;: &quot;ATT_Verizon_osszehasonlitas!A6:D7&quot;, &quot;valueColumns&quot;: [&quot;D&quot;], &quot;unit&quot;: &quot;%&quot;, &quot;displayMultiplier&quot;: 100, &quot;series&quot;: [&quot;Sikeresség&quot;], &quot;rows&quot;: [[&quot;AT&amp;T&quot;, 0.673670805475963], [&quot;Verizon&quot;, 0.308245711123409]]}</metadata>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#1a3657"/><stop offset="1" stop-color="#0b172b"/></linearGradient><linearGradient id="blue"><stop stop-color="#4da5ff"/><stop offset="1" stop-color="#a4e7ff"/></linearGradient><linearGradient id="mint"><stop stop-color="#1fd3bc"/><stop offset="1" stop-color="#a4ffdf"/></linearGradient><linearGradient id="warm"><stop stop-color="#ff9864"/><stop offset="1" stop-color="#ffd0a3"/></linearGradient></defs>
+<style>text{font:16px system-ui,sans-serif;fill:#f3f8ff}.heading{font-size:21px;font-weight:700}.muted{fill:#b4d2f0;font-size:14px}.value{font-size:14px;font-weight:700}</style>
+<rect width="680" height="175" rx="12" fill="url(#bg)"/>
+<text x="23" y="33" class="heading">AT&amp;T és Verizon sikeressége közös H3-cellákban</text>
+<g transform="translate(0 -20)">
+<path d="M130.0000 67V160" stroke="#8fcaf4"/>
+<text x="130.00" y="181" class="muted" text-anchor="middle">0</text>
+<path d="M223.2000 67V160" stroke="#35516e"/>
+<text x="223.20" y="181" class="muted" text-anchor="middle">20</text>
+<path d="M316.4000 67V160" stroke="#35516e"/>
+<text x="316.40" y="181" class="muted" text-anchor="middle">40</text>
+<path d="M409.6000 67V160" stroke="#35516e"/>
+<text x="409.60" y="181" class="muted" text-anchor="middle">60</text>
+<path d="M502.8000 67V160" stroke="#35516e"/>
+<text x="502.80" y="181" class="muted" text-anchor="middle">80</text>
+<path d="M596.0000 67V160" stroke="#35516e"/>
+<text x="596.00" y="181" class="muted" text-anchor="middle">100</text>
+<text x="23.00" y="86" class="" text-anchor="start">AT&amp;T</text>
+<rect x="130.000000" y="73" width="313.930595" height="16" rx="3" fill="url(#blue)"/>
+<text x="450.93" y="86" class="value" text-anchor="start">67,37 %</text>
+<text x="23.00" y="128" class="" text-anchor="start">Verizon</text>
+<rect x="130.000000" y="115" width="143.642501" height="16" rx="3" fill="url(#blue)"/>
+<text x="280.64" y="128" class="value" text-anchor="start">30,82 %</text>
+</g>
+</svg>

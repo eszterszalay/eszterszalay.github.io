@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="259" viewBox="0 0 760 259" role="img" aria-labelledby="title desc">
+<title id="title">Verizon sikeressége tesztszám-kategóriánként</title>
+<desc id="desc">1–4 teszt (92 cella): Sikeresség 0.24528301886792453; 5–9 teszt (256 cella): Sikeresség 0.24497041420118343; 10–19 teszt (102 cella): Sikeresség 0.29607698001480387; 20+ teszt (30 cella): Sikeresség 0.3985307621671258</desc>
+<metadata>{&quot;source&quot;: &quot;Verizon_hibavizsgalat!P4:Q7&quot;, &quot;valueColumns&quot;: [&quot;Q&quot;], &quot;unit&quot;: &quot;%&quot;, &quot;displayMultiplier&quot;: 100, &quot;series&quot;: [&quot;Sikeresség&quot;], &quot;rows&quot;: [[&quot;1–4 teszt&quot;, 0.24528301886792453], [&quot;5–9 teszt&quot;, 0.24497041420118343], [&quot;10–19 teszt&quot;, 0.29607698001480387], [&quot;20+ teszt&quot;, 0.3985307621671258]]}</metadata>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#1a3657"/><stop offset="1" stop-color="#0b172b"/></linearGradient><linearGradient id="blue"><stop stop-color="#4da5ff"/><stop offset="1" stop-color="#a4e7ff"/></linearGradient><linearGradient id="mint"><stop stop-color="#1fd3bc"/><stop offset="1" stop-color="#a4ffdf"/></linearGradient><linearGradient id="warm"><stop stop-color="#ff9864"/><stop offset="1" stop-color="#ffd0a3"/></linearGradient></defs>
+<style>text{font:16px system-ui,sans-serif;fill:#f3f8ff}.heading{font-size:21px;font-weight:700}.muted{fill:#b4d2f0;font-size:14px}.value{font-size:14px;font-weight:700}</style>
+<rect width="760" height="259" rx="12" fill="url(#bg)"/>
+<text x="23" y="33" class="heading">Verizon sikeressége tesztszám-kategóriánként</text>
+<g transform="translate(0 -20)">
+<path d="M210 67V244" stroke="#8fcaf4"/>
+<text x="210" y="265" class="muted" text-anchor="middle">0</text>
+<path d="M303.2 67V244" stroke="#35516e"/>
+<text x="303.2" y="265" class="muted" text-anchor="middle">20</text>
+<path d="M396.4 67V244" stroke="#35516e"/>
+<text x="396.4" y="265" class="muted" text-anchor="middle">40</text>
+<path d="M489.6 67V244" stroke="#35516e"/>
+<text x="489.6" y="265" class="muted" text-anchor="middle">60</text>
+<path d="M582.8 67V244" stroke="#35516e"/>
+<text x="582.8" y="265" class="muted" text-anchor="middle">80</text>
+<path d="M676 67V244" stroke="#35516e"/>
+<text x="676" y="265" class="muted" text-anchor="middle">100</text>
+<text x="23.00" y="86" class="" text-anchor="start">1–4 teszt (92 cella)</text>
+<rect x="210" y="73" width="114.301887" height="16" rx="3" fill="url(#blue)"/>
+<text x="331.3" y="86" class="value" text-anchor="start">24,53 %</text>
+<text x="23.00" y="128" class="" text-anchor="start">5–9 teszt (256 cella)</text>
+<rect x="210" y="115" width="114.156213" height="16" rx="3" fill="url(#blue)"/>
+<text x="331.16" y="128" class="value" text-anchor="start">24,5 %</text>
+<text x="23.00" y="170" class="" text-anchor="start">10–19 teszt (102 cella)</text>
+<rect x="210" y="157" width="137.971873" height="16" rx="3" fill="url(#blue)"/>
+<text x="354.97" y="170" class="value" text-anchor="start">29,61 %</text>
+<text x="23.00" y="212" class="" text-anchor="start">20+ teszt (30 cella)</text>
+<rect x="210" y="199" width="185.715335" height="16" rx="3" fill="url(#blue)"/>
+<text x="402.72" y="212" class="value" text-anchor="start">39,85 %</text>
+</g>
+</svg>

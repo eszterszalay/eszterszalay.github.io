@@ -1,0 +1,27 @@
+---
+interface Props {
+  software: (keyof typeof tools)[];
+  showLabel?: boolean;
+  excelLabel?: string;
+}
+const { software, showLabel = false, excelLabel = 'Excel' } = Astro.props;
+const tools = {
+  'arcgis-pro': { name: 'ArcGIS Pro', image: 'ArcGIS_Pro_ikon.png' },
+  excel: { name: 'Excel', image: 'excel_ikon.png' },
+  autocad: { name: 'AutoCAD', image: 'autodesk-autocad.png' },
+  qgis: { name: 'QGIS', image: 'Qgis-icon.png' },
+};
+---
+{software.length > 0 && (
+  <div class="project-software">
+    {showLabel && <h3 class="software-label">Alkalmazott eszközök</h3>}
+    <ul aria-label="Alkalmazott eszközök">
+      {software.map((id) => (
+        <li>
+          <img class:list={[{ 'software-excel-icon': id === 'excel' }]} src={`${import.meta.env.BASE_URL}media/rolam/${tools[id].image}`} width="24" height="24" alt="" />
+          <span>{id === 'excel' ? excelLabel : tools[id].name}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+)}

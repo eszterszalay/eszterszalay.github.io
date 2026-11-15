@@ -1,0 +1,149 @@
+---
+import { projectMediaUrl } from '../lib/project-media';
+
+interface Props {
+  projectId: string;
+  title: string;
+  fitViewport?: boolean;
+  desktopHeight?: number;
+  uniformPreviews?: boolean;
+  items: {
+    title: string;
+    caption?: string;
+    compactCaption?: boolean;
+    previewWidth?: number;
+    legend?: {
+      introduction: string;
+      items: { color: 'yellow' | 'blue' | 'black'; label: string }[];
+    };
+    source?: string;
+    image?: { preview: string; full: string; alt: string; matchHeight?: boolean };
+  }[];
+}
+const { projectId, title, items, fitViewport, desktopHeight, uniformPreviews } = Astro.props;
+---
+<portfolio-gallery
+  class="gallery"
+  data-fit-viewport={fitViewport || desktopHeight ? '' : undefined}
+  data-uniform-previews={uniformPreviews ? '' : undefined}
+  style={desktopHeight ? { '--gallery-height': `${desktopHeight}px` } : undefined}
+  aria-label={title}
+  role="region"
+>
+  <h2>{title}</h2>
+  <div class="gallery-slides">
+  {items.length > 1 && (
+    <div class="gallery-controls" data-controls hidden>
+      <button type="button" data-prev aria-label="Előző ábra">←</button>
+      <button type="button" data-next aria-label="Következő ábra">→</button>
+    </div>
+  )}
+  {items.map(({ title, caption, legend, source, image, compactCaption, previewWidth }, index) => (
+    <figure data-slide data-compact-caption={compactCaption ? '' : undefined}>
+      {items.length > 1 && <span class="gallery-count" aria-hidden="true">{index + 1} / {items.length}</span>}
+      {image ? (
+        <a class="gallery-image" href={projectMediaUrl(projectId, image.full)} data-zoom aria-label={`Nagyítás: ${title}`}>
+          <img class:list={{ 'gallery-image-matched': image.matchHeight }} style={previewWidth ? { maxWidth: `min(100%, ${previewWidth}px)` } : undefined} src={projectMediaUrl(projectId, image.preview)} alt={image.alt} loading="lazy" decoding="async" />
+        </a>
+      ) : <div class="gallery-placeholder">Helyőrző · {title}</div>}
+      {(caption || legend || source) && <figcaption>
+        <strong>{title}</strong>
+        {legend ? (
+          <div class="gallery-caption-columns">
+            <div>
+              <p>{legend.introduction}</p>
+              <ul class="gallery-legend" role="list">
+                {legend.items.map(({ color, label }) => (
+                  <li><span class="gallery-legend-dot" data-color={color} aria-hidden="true"></span>{label}</li>
+                ))}
+              </ul>
+            </div>
+            {caption && <p>{caption}</p>}
+          </div>
+        ) : caption && <p>{caption}</p>}
+        {source && <small>Forrás · {source}</small>}
+      </figcaption>}
+    </figure>
+  ))}
+  {items.length > 1 && <span class="gallery-count-status" data-count role="status"></span>}
+  </div>
+  <dialog aria-label={`${title} – nagyított ábra`}>
+    <div class="dialog-toolbar">
+      <form method="dialog"><button aria-label="Nagyított nézet bezárása" autofocus>Bezárás ×</button></form>
+    </div>
+    <div class="dialog-viewport" tabindex="0" role="region" aria-label="Görgethető ábra">
+      <img data-full alt="" />
+    </div>
+  </dialog>
+</portfolio-gallery>
+
+<script>
+  class PortfolioGallery extends HTMLElement {
+    private alignmentObserver?: ResizeObserver;
+
+    disconnectedCallback() {
+      this.alignmentObserver?.disconnect();
+    }
+
+    connectedCallback() {
+      const slides = [...this.querySelectorAll<HTMLElement>('[data-slide]')];
+      const controls = this.querySelector<HTMLElement>('[data-controls]');
+      const count = this.querySelector<HTMLElement>('[data-count]');
+      const dialog = this.querySelector('dialog')!;
+      const full = dialog.querySelector<HTMLImageElement>('[data-full]')!;
+      const viewport = dialog.querySelector<HTMLElement>('.dialog-viewport')!;
+      let index = 0;
+      const show = (next: number) => {
+        index = (next + slides.length) % slides.length;
+        slides.forEach((slide, position) => { slide.hidden = position !== index; });
+        if (count) count.textContent = `${index + 1} / ${slides.length}`;
+      };
+      if (controls) controls.hidden = false;
+      show(0);
+      this.dataset.ready = '';
+      if (this.hasAttribute('data-fit-viewport')) {
+        const reference = slides[0]?.querySelector<HTMLImageElement>('.gallery-image img');
+        const stage = this.querySelector('.gallery-slides');
+        const compactImages = [...this.querySelectorAll<HTMLImageElement>('[data-compact-caption] img')];
+        if (reference && stage) {
+          this.alignmentObserver = new ResizeObserver(() => {
+            const bounds = reference.getBoundingClientRect();
+            if (!bounds.height) return;
+            const center = bounds.top + bounds.height / 2 - stage.getBoundingClientRect().top;
+            this.style.setProperty('--gallery-image-center', `${center}px`);
+            for (const image of compactImages) {
+              image.style.setProperty('--gallery-preview-height', `${image.offsetHeight}px`);
+            }
+          });
+          this.alignmentObserver.observe(reference);
+          this.alignmentObserver.observe(stage);
+          compactImages.forEach((image) => this.alignmentObserver?.observe(image));
+        }
+      }
+      this.querySelector('[data-prev]')?.addEventListener('click', () => show(index - 1));
+      this.querySelector('[data-next]')?.addEventListener('click', () => show(index + 1));
+      this.addEventListener('keydown', (event) => {
+        if (dialog.open || !controls || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
+        event.preventDefault();
+        if (event.target instanceof HTMLElement && slides[index].contains(event.target)) {
+          controls.querySelector('button')?.focus();
+        }
+        show(index + (event.key === 'ArrowLeft' ? -1 : 1));
+      });
+      this.querySelectorAll<HTMLAnchorElement>('[data-zoom]').forEach((link) => {
+        link.addEventListener('click', (event) => {
+          if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
+          event.preventDefault();
+          full.src = link.href;
+          full.alt = link.querySelector('img')!.alt;
+          dialog.showModal();
+        });
+      });
+      dialog.addEventListener('close', () => {
+        full.removeAttribute('src');
+        viewport.scrollTo(0, 0);
+      });
+    }
+  }
+  customElements.define('portfolio-gallery', PortfolioGallery);
+</script>

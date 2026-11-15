@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="309" viewBox="0 0 680 309" role="img" aria-labelledby="title desc">
+<title id="title">LTE-RSRP és letöltési sebesség Pearson-korrelációja</title>
+<desc id="desc">AT&amp;T: Pearson r 0.35700587252729343; FirstNet: Pearson r 0.4249476604455032; T-Mobile: Pearson r 0.432598956708699; US Cellular: Pearson r 0.053586425846814056; Verizon: Pearson r 0.2724749613411626; VTel: Pearson r 0.1771175726099149</desc>
+<metadata>{&quot;source&quot;: &quot;RSRP_DL_korrelacio!T2:V7&quot;, &quot;valueColumns&quot;: [&quot;U&quot;], &quot;unit&quot;: &quot;r&quot;, &quot;displayMultiplier&quot;: 1, &quot;series&quot;: [&quot;Pearson r&quot;], &quot;rows&quot;: [[&quot;AT&amp;T&quot;, 0.35700587252729343], [&quot;FirstNet&quot;, 0.4249476604455032], [&quot;T-Mobile&quot;, 0.432598956708699], [&quot;US Cellular&quot;, 0.053586425846814056], [&quot;Verizon&quot;, 0.2724749613411626], [&quot;VTel&quot;, 0.1771175726099149]]}</metadata>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#1a3657"/><stop offset="1" stop-color="#0b172b"/></linearGradient><linearGradient id="blue"><stop stop-color="#4da5ff"/><stop offset="1" stop-color="#a4e7ff"/></linearGradient><linearGradient id="mint"><stop stop-color="#1fd3bc"/><stop offset="1" stop-color="#a4ffdf"/></linearGradient><linearGradient id="warm"><stop stop-color="#ff9864"/><stop offset="1" stop-color="#ffd0a3"/></linearGradient></defs>
+<style>text{font:16px system-ui,sans-serif;fill:#f3f8ff}.heading{font-size:21px;font-weight:700}.muted{fill:#b4d2f0;font-size:14px}.value{font-size:14px;font-weight:700}</style>
+<rect width="680" height="309" rx="12" fill="url(#bg)"/>
+<text x="23" y="33" class="heading">LTE-RSRP és letöltési sebesség Pearson-korrelációja</text>
+<rect x="24" y="47" width="12" height="12" rx="2" fill="url(#blue)"/>
+<text x="42.00" y="58" class="muted" text-anchor="start">Pearson r</text>
+<path d="M130.0000 67V274" stroke="#8fcaf4"/>
+<text x="130.00" y="295" class="muted" text-anchor="middle">0</text>
+<path d="M223.2000 67V274" stroke="#35516e"/>
+<text x="223.20" y="295" class="muted" text-anchor="middle">0,1</text>
+<path d="M316.4000 67V274" stroke="#35516e"/>
+<text x="316.40" y="295" class="muted" text-anchor="middle">0,2</text>
+<path d="M409.6000 67V274" stroke="#35516e"/>
+<text x="409.60" y="295" class="muted" text-anchor="middle">0,3</text>
+<path d="M502.8000 67V274" stroke="#35516e"/>
+<text x="502.80" y="295" class="muted" text-anchor="middle">0,4</text>
+<path d="M596.0000 67V274" stroke="#35516e"/>
+<text x="596.00" y="295" class="muted" text-anchor="middle">0,5</text>
+<text x="23.00" y="86" class="" text-anchor="start">AT&amp;T</text>
+<rect x="130.000000" y="73" width="332.729473" height="16" rx="3" fill="url(#blue)"/>
+<text x="469.73" y="86" class="value" text-anchor="start">0,357</text>
+<text x="23.00" y="119" class="" text-anchor="start">FirstNet</text>
+<rect x="130.000000" y="106" width="396.051220" height="16" rx="3" fill="url(#blue)"/>
+<text x="533.05" y="119" class="value" text-anchor="start">0,425</text>
+<text x="23.00" y="152" class="" text-anchor="start">T-Mobile</text>
+<rect x="130.000000" y="139" width="403.182228" height="16" rx="3" fill="url(#blue)"/>
+<text x="540.18" y="152" class="value" text-anchor="start">0,433</text>
+<text x="23.00" y="185" class="" text-anchor="start">US Cellular</text>
+<rect x="130.000000" y="172" width="49.942549" height="16" rx="3" fill="url(#blue)"/>
+<text x="186.94" y="185" class="value" text-anchor="start">0,054</text>
+<text x="23.00" y="218" class="" text-anchor="start">Verizon</text>
+<rect x="130.000000" y="205" width="253.946664" height="16" rx="3" fill="url(#blue)"/>
+<text x="390.95" y="218" class="value" text-anchor="start">0,272</text>
+<text x="23.00" y="251" class="" text-anchor="start">VTel</text>
+<rect x="130.000000" y="238" width="165.073578" height="16" rx="3" fill="url(#blue)"/>
+<text x="302.07" y="251" class="value" text-anchor="start">0,177</text>
+</svg>

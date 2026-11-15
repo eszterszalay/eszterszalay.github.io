@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectCover from '../components/ProjectCover.astro';
+import ProjectSoftware from '../components/ProjectSoftware.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const home = import.meta.env.BASE_URL;
+---
+<Base>
+  <section class="hero" aria-labelledby="nev" style={{ '--hero-cover': `url("${home}media/rolam/kezdolap-hullamvonalak-kiegeszitett.png")` }}>
+    <div class="shell hero-layout">
+      <div class="hero-copy">
+        <p class="eyebrow">Távközlési technológiák</p>
+        <h1 id="nev">Szalay Eszter Virág</h1>
+        <p class="profession">Villamosmérnök</p>
+        <p class="hero-description">Távközlési hálózatok, műszaki tervezés és elemzés.</p>
+        <div class="hero-actions">
+          <a class="primary" href="#bemutatkozas">Rólam <span aria-hidden="true">↓</span></a>
+          <a class="primary" href="#projektek">Projektek <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <img class="hero-portrait" src={`${home}media/rolam/szalay-eszter.webp`} alt="Szalay Eszter Virág portréja" decoding="async" />
+    </div>
+  </section>
+  <section class="shell projects" id="projektek" aria-labelledby="projects-title">
+    <h2 id="projects-title">Projektek</h2>
+    <div class="project-grid">
+      {projects.map(({ id, data }) => (
+        <article class:list={['project-card', { 'project-card-in-progress': data.inProgress }]}>
+          <ProjectCover projectId={id} motif={data.motif} cover={data.cover} />
+          <div class="card-body">
+            {!data.inProgress && <p class="status">{data.status}</p>}
+            <h3>{data.inProgress ? data.title : <a href={`${home}projektek/${id}/`}>{data.title}</a>}</h3>
+            {data.technologies.length > 0 && <ul class="tags">{data.technologies.map((technology) => <li>{technology}</li>)}</ul>}
+            <ProjectSoftware software={data.software} />
+            {!data.inProgress && <a class="text-link" href={`${home}projektek/${id}/`} aria-label={`${data.title} – projekt részletei`}>Projekt részletei <span aria-hidden="true">↗</span></a>}
+          </div>
+          {data.inProgress && <span class="project-card-ribbon">{data.status}</span>}
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="shell about" id="bemutatkozas" aria-labelledby="about-title">
+    <div>
+      <p class="eyebrow">Szakmai profil</p>
+      <h2 id="about-title">Rólam</h2>
+      <p>Frissdiplomás villamosmérnök vagyok, infokommunikációs technológiák specializációval. Elsősorban a távközlési hálózatok, az optikai és mikrohullámú technológiák, valamint a műszaki tervezés érdekelnek.</p>
+      <p>Egyetemi és önálló projektjeim során optikai mérési környezet kialakításával, valamint mobilhálózati adatok térinformatikai és statisztikai elemzésével foglalkoztam. Szívesen sajátítok el új műszaki szoftvereket és módszereket, és olyan mérnöki pozíciót keresek, ahol továbbfejleszthetem a tudásomat.</p>
+      <div class="skills">
+        <h3>Szakterületek és érdeklődési körök</h3>
+        <ul class="tags"><li>Optikai távközlés</li><li>Mobilhálózatok</li><li>Mikrohullámú technológiák</li><li>Hálózati infrastruktúrák</li></ul>
+        <h3>Alkalmazott eszközök</h3>
+        <ProjectSoftware software={['arcgis-pro', 'excel', 'autocad']} excelLabel="Microsoft Excel" />
+      </div>
+    </div>
+  </section>
+  <section class="shell contact" id="kapcsolat" aria-labelledby="contact-title">
+    <h2 id="contact-title">Kapcsolat</h2>
+    <dl>
+      <div><dt>GitHub</dt><dd>Profilhivatkozás helye</dd></div>
+      <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/eszterszalay/">www.linkedin.com/in/eszterszalay</a></dd></div>
+      <div><dt>E-mail</dt><dd><a href="mailto:szalayeszterv@gmail.com">szalayeszterv@gmail.com</a></dd></div>
+    </dl>
+  </section>
+</Base>

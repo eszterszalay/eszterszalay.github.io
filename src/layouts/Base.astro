@@ -1,0 +1,32 @@
+---
+import '../styles/site.css';
+interface Props { title?: string; description?: string; }
+const { title, description = 'Szalay Eszter Virág villamosmérnöki portfóliója. Távközlés és infokommunikáció.' } = Astro.props;
+const home = import.meta.env.BASE_URL;
+---
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#091325" />
+    <title>{title ? `${title} | Szalay Eszter Virág` : 'Szalay Eszter Virág | Villamosmérnök'}</title>
+  </head>
+  <body>
+    <a class="skip" href="#tartalom">Ugrás a tartalomra</a>
+    <header class="site-header">
+      <div class="shell header-row">
+        <a class="brand" href={home}><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>Szalay Eszter Virág</a>
+        <nav aria-label="Fő navigáció">
+          <a href={`${home}#projektek`}>Projektek</a>
+          <a href={`${home}#bemutatkozas`}>Rólam</a>
+          <a href={`${home}media/rolam/szalay-eszter-cv.pdf`} target="_blank" rel="noopener">Önéletrajz</a>
+          <a href={`${home}#kapcsolat`}>Kapcsolat</a>
+        </nav>
+      </div>
+    </header>
+    <main id="tartalom"><slot /></main>
+    <footer class="shell footer"><span>Szalay Eszter Virág</span><a href={home}>Főoldal ↑</a></footer>
+  </body>
+</html>

@@ -1,0 +1,21 @@
+---
+import { projectMediaUrl } from '../lib/project-media';
+
+interface Props {
+  projectId: string;
+  motif: 'fiber' | 'map' | 'plan';
+  cover?: { src: string; alt: string };
+}
+const { projectId, motif, cover } = Astro.props;
+const label = { fiber: 'Mérési fotó helye', map: 'Térképexport helye', plan: 'Tervrajz helye' }[motif];
+---
+<div class:list={['project-cover', motif]}>
+  {cover ? <img src={projectMediaUrl(projectId, cover.src)} alt={cover.alt} loading="lazy" decoding="async" /> : (
+    <>
+      <div class="cover-art" aria-hidden="true">
+        <i></i><i></i><i></i><i></i><i></i>
+      </div>
+      <span class="cover-label">{label}</span>
+    </>
+  )}
+</div>

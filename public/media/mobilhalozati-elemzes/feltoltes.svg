@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="435" viewBox="0 0 680 435" role="img" aria-labelledby="title desc">
+<title id="title">Feltöltési sebesség szolgáltatónként</title>
+<desc id="desc">AT&amp;T: Átlag 5.017087719298251, Medián 2.95; FirstNet: Átlag 4.544301886792452, Medián 2.4; T-Mobile: Átlag 4.863690140845067, Medián 2.21; US Cellular: Átlag 5.748989361702128, Medián 3.8600000000000003; Verizon: Átlag 4.7579452054794515, Medián 3.97; VTel: Átlag 5.2484229390680985, Medián 2.94</desc>
+<metadata>{&quot;source&quot;: &quot;SpeedTest_statisztika!A2:F7&quot;, &quot;valueColumns&quot;: [&quot;E&quot;, &quot;F&quot;], &quot;unit&quot;: &quot;Mbps&quot;, &quot;displayMultiplier&quot;: 1, &quot;series&quot;: [&quot;Átlag&quot;, &quot;Medián&quot;], &quot;rows&quot;: [[&quot;AT&amp;T&quot;, 5.017087719298251, 2.95], [&quot;FirstNet&quot;, 4.544301886792452, 2.4], [&quot;T-Mobile&quot;, 4.863690140845067, 2.21], [&quot;US Cellular&quot;, 5.748989361702128, 3.8600000000000003], [&quot;Verizon&quot;, 4.7579452054794515, 3.97], [&quot;VTel&quot;, 5.2484229390680985, 2.94]]}</metadata>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#1a3657"/><stop offset="1" stop-color="#0b172b"/></linearGradient><linearGradient id="blue"><stop stop-color="#4da5ff"/><stop offset="1" stop-color="#a4e7ff"/></linearGradient><linearGradient id="mint"><stop stop-color="#1fd3bc"/><stop offset="1" stop-color="#a4ffdf"/></linearGradient><linearGradient id="warm"><stop stop-color="#ff9864"/><stop offset="1" stop-color="#ffd0a3"/></linearGradient></defs>
+<style>text{font:16px system-ui,sans-serif;fill:#f3f8ff}.heading{font-size:21px;font-weight:700}.muted{fill:#b4d2f0;font-size:14px}.value{font-size:14px;font-weight:700}</style>
+<rect width="680" height="435" rx="12" fill="url(#bg)"/>
+<text x="23" y="33" class="heading">Feltöltési sebesség szolgáltatónként</text>
+<rect x="24" y="47" width="12" height="12" rx="2" fill="url(#blue)"/>
+<text x="42.00" y="58" class="muted" text-anchor="start">Átlag</text>
+<rect x="121" y="47" width="12" height="12" rx="2" fill="url(#mint)"/>
+<text x="139.00" y="58" class="muted" text-anchor="start">Medián (Mbps)</text>
+<path d="M130.0000 79V400" stroke="#8fcaf4"/>
+<text x="130.00" y="421" class="muted" text-anchor="middle">0</text>
+<path d="M207.6667 79V400" stroke="#35516e"/>
+<text x="207.67" y="421" class="muted" text-anchor="middle">1</text>
+<path d="M285.3333 79V400" stroke="#35516e"/>
+<text x="285.33" y="421" class="muted" text-anchor="middle">2</text>
+<path d="M363.0000 79V400" stroke="#35516e"/>
+<text x="363.00" y="421" class="muted" text-anchor="middle">3</text>
+<path d="M440.6667 79V400" stroke="#35516e"/>
+<text x="440.67" y="421" class="muted" text-anchor="middle">4</text>
+<path d="M518.3333 79V400" stroke="#35516e"/>
+<text x="518.33" y="421" class="muted" text-anchor="middle">5</text>
+<path d="M596.0000 79V400" stroke="#35516e"/>
+<text x="596.00" y="421" class="muted" text-anchor="middle">6</text>
+<text x="23.00" y="104" class="" text-anchor="start">AT&amp;T</text>
+<rect x="130.000000" y="85" width="389.660480" height="16" rx="3" fill="url(#blue)"/>
+<text x="526.66" y="98" class="value" text-anchor="start">5,02</text>
+<rect x="130.000000" y="106" width="229.116667" height="16" rx="3" fill="url(#mint)"/>
+<text x="366.12" y="119" class="value" text-anchor="start">2,95</text>
+<text x="23.00" y="156" class="" text-anchor="start">FirstNet</text>
+<rect x="130.000000" y="137" width="352.940780" height="16" rx="3" fill="url(#blue)"/>
+<text x="489.94" y="150" class="value" text-anchor="start">4,54</text>
+<rect x="130.000000" y="158" width="186.400000" height="16" rx="3" fill="url(#mint)"/>
+<text x="323.40" y="171" class="value" text-anchor="start">2,4</text>
+<text x="23.00" y="208" class="" text-anchor="start">T-Mobile</text>
+<rect x="130.000000" y="189" width="377.746601" height="16" rx="3" fill="url(#blue)"/>
+<text x="514.75" y="202" class="value" text-anchor="start">4,86</text>
+<rect x="130.000000" y="210" width="171.643333" height="16" rx="3" fill="url(#mint)"/>
+<text x="308.64" y="223" class="value" text-anchor="start">2,21</text>
+<text x="23.00" y="260" class="" text-anchor="start">US Cellular</text>
+<rect x="130.000000" y="241" width="446.504840" height="16" rx="3" fill="url(#blue)"/>
+<text x="583.50" y="254" class="value" text-anchor="start">5,75</text>
+<rect x="130.000000" y="262" width="299.793333" height="16" rx="3" fill="url(#mint)"/>
+<text x="436.79" y="275" class="value" text-anchor="start">3,86</text>
+<text x="23.00" y="312" class="" text-anchor="start">Verizon</text>
+<rect x="130.000000" y="293" width="369.533744" height="16" rx="3" fill="url(#blue)"/>
+<text x="506.53" y="306" class="value" text-anchor="start">4,76</text>
+<rect x="130.000000" y="314" width="308.336667" height="16" rx="3" fill="url(#mint)"/>
+<text x="445.34" y="327" class="value" text-anchor="start">3,97</text>
+<text x="23.00" y="364" class="" text-anchor="start">VTel</text>
+<rect x="130.000000" y="345" width="407.627515" height="16" rx="3" fill="url(#blue)"/>
+<text x="544.63" y="358" class="value" text-anchor="start">5,25</text>
+<rect x="130.000000" y="366" width="228.340000" height="16" rx="3" fill="url(#mint)"/>
+<text x="365.34" y="379" class="value" text-anchor="start">2,94</text>
+</svg>
