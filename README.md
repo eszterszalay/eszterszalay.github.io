@@ -92,6 +92,6 @@ A Word-leírás, az Excel-munkafüzet és az eredeti ArcGIS-exportok helye a hel
 
 A kezdőlap képei és a szoftverikonok a `public/media/rolam/` mappába kerülnek. A bemutatkozás eredeti képei és Word-fájlja a `forrasanyagok/rolam/` mappában vannak.
 
-## Későbbi közzététel
+## Közzététel
 
-A statikus `dist/` könyvtár a GitHub Pagesre feltölthető. A személyes Pages-repó fiókját és címét közzététel előtt ellenőrizni kell. A GitHub Actions munkafolyamat a közzétételi fázisban készül el.
+A portfólió címe [eszterszalay.github.io](https://eszterszalay.github.io/). A `main` ágra feltöltött változatot a `.github/workflows/deploy.yml` munkafolyamat fordítja le és teszi közzé GitHub Pagesen.
