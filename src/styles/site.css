@@ -255,7 +255,7 @@ section[id] { scroll-margin-top: 1.25rem; }
 .gallery-placeholder { min-height: 9rem; display: grid; place-items: center; text-align: center; margin: .5rem; padding: 1rem; border: 1px dashed #587997; color: var(--blue); }
 .gallery-image { display: block; padding: .5rem; }
 .gallery-image img { margin-inline: auto; }
-@media (min-width: 851px) and (min-height: 540px) {
+@media (min-width: 851px) and (min-height: 540px) and (any-pointer: fine) {
   .gallery[data-fit-viewport][data-ready] { display: flex; flex-direction: column; height: var(--gallery-height, min(58rem, calc(100dvh - 1.5rem))); }
   .gallery[data-fit-viewport][data-uniform-previews][data-ready] { height: calc(100dvh - .5rem); }
   .gallery[data-fit-viewport][data-ready] .gallery-slides { position: relative; flex: 1; min-height: 0; display: flex; }
@@ -298,6 +298,9 @@ section[id] { scroll-margin-top: 1.25rem; }
 
 @media (max-width: 850px) {
   .project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 850px), (pointer: coarse) and (not (any-pointer: fine)) {
   .gallery-controls {
     position: absolute;
     z-index: 1;
@@ -315,13 +318,15 @@ section[id] { scroll-margin-top: 1.25rem; }
   .header-row { flex-wrap: wrap; gap: .3rem 1rem; padding-block: .65rem; }
   .site-header nav { gap: .2rem; }
   .site-header nav a { padding-inline: .45rem; }
-  .hero-layout { min-height: auto; grid-template-columns: minmax(0, 1fr) auto; gap: .65rem 1rem; }
+  .hero-layout { min-height: auto; grid-template-columns: minmax(0, 1fr) clamp(3.75rem, 21vw, 6.5rem); gap: .65rem .75rem; }
   .hero-copy { display: contents; }
   .hero-copy > * { position: relative; z-index: 1; grid-column: 1 / -1; }
-  .hero-copy .eyebrow { grid-area: 1 / 1; margin: 0; }
-  .hero h1 { font-size: clamp(1.425rem, 6.15vw, 2.175rem); }
-  .hero-description { font-size: clamp(.72rem, 3.35vw, 1.05rem); }
-  .hero-portrait { grid-area: 1 / 2; width: clamp(3.75rem, 19vw, 6.5rem); }
+  .hero-copy .eyebrow { grid-row: 1; margin: 0; }
+  .hero h1 { grid-area: 2 / 1; font-size: clamp(1.25rem, 5.8vw, 2.175rem); }
+  .hero-copy .profession { grid-area: 3 / 1; }
+  .hero-copy .hero-description { grid-area: 4 / 1; font-size: clamp(.72rem, 3.35vw, 1.05rem); }
+  .hero-copy .hero-actions { grid-row: 5; }
+  .hero-portrait { grid-area: 2 / 2 / 5 / 3; width: 100%; height: 100%; min-height: 0; contain: size; }
   .about, .contact { padding-block: 2.6rem; }
   .projects { padding-block-end: 2.6rem; }
   .about, .project-grid, .contact dl { grid-template-columns: 1fr; }
