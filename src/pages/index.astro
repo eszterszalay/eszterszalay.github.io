@@ -14,10 +14,10 @@ const home = import.meta.env.BASE_URL;
         <p class="eyebrow">Távközlési technológiák</p>
         <h1 id="nev">Szalay Eszter Virág</h1>
         <p class="profession">Villamosmérnök</p>
-        <p class="hero-description">Távközlési hálózatok, műszaki tervezés és elemzés.</p>
+        <p class="hero-description">Távközlési hálózatok, műszaki<br />tervezés és elemzés.</p>
         <div class="hero-actions">
-          <a class="primary" href="#bemutatkozas">Rólam <span aria-hidden="true">↓</span></a>
           <a class="primary" href="#projektek">Projektek <span aria-hidden="true">↓</span></a>
+          <a class="primary" href="#bemutatkozas">Rólam <span aria-hidden="true">↓</span></a>
         </div>
       </div>
       <img class="hero-portrait" src={`${home}media/rolam/szalay-eszter.webp`} alt="Szalay Eszter Virág portréja" decoding="async" />
@@ -59,7 +59,7 @@ const home = import.meta.env.BASE_URL;
     <h2 id="contact-title">Kapcsolat</h2>
     <dl>
       <div>
-        <dt><img class="contact-icon" src={`${home}media/rolam/linkedin_ikon.png`} width="24" height="24" alt="" />LinkedIn</dt>
+        <dt><span class="contact-icon contact-icon-linkedin" aria-hidden="true"><img src={`${home}media/rolam/linkedin_ikon.png`} alt="" /></span>LinkedIn</dt>
         <dd><a href="https://www.linkedin.com/in/eszterszalay/">www.linkedin.com/in/eszterszalay</a></dd>
       </div>
       <div>
@@ -69,3 +69,28 @@ const home = import.meta.env.BASE_URL;
     </dl>
   </section>
 </Base>
+
+<script>
+  const hero = document.querySelector<HTMLElement>('.hero');
+  const actions = hero?.querySelector('.hero-actions');
+  const copy = hero?.querySelector('.hero-copy');
+
+  if (hero && actions && copy) {
+    const alignWave = () => {
+      const heroBounds = hero.getBoundingClientRect();
+      const button = actions.firstElementChild?.getBoundingClientRect();
+      if (!button) return;
+
+      // The bright arc behind the buttons sits about 68% down the source image.
+      const imageHeight = heroBounds.width * 826 / 1903;
+      const waveCenter = heroBounds.bottom - imageHeight * .32;
+      const buttonCenter = button.top + button.height / 2;
+      hero.style.setProperty('--hero-wave-offset', `${buttonCenter - waveCenter}px`);
+    };
+    const observer = new ResizeObserver(alignWave);
+    observer.observe(hero);
+    observer.observe(copy);
+    observer.observe(actions);
+    alignWave();
+  }
+</script>
