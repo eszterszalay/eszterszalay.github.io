@@ -31,10 +31,7 @@ section[id] { scroll-margin-top: 1.25rem; }
 .header-row, .footer { min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
 .header-row { padding-block: .65rem; }
 .brand, nav a { text-decoration: none; }
-.brand { display: inline-flex; align-items: center; gap: .75rem; color: var(--text); font-weight: 700; }
-.brand-mark { display: inline-flex; align-items: center; gap: 3px; padding: .55rem; border: 1px solid #5087a4; border-radius: .55rem; background: #142d4680; box-shadow: 0 0 14px #79efda1a; }
-.brand-mark i { width: 3px; height: .7rem; background: var(--blue); transform: skew(-22deg); }
-.brand-mark i:nth-child(2) { height: 1rem; background: var(--teal); }
+.brand { color: var(--text); font-weight: 700; }
 .site-header nav { display: flex; flex-wrap: wrap; align-items: center; gap: .3rem .45rem; }
 .site-header nav a { display: inline-flex; align-items: center; min-height: 44px; color: var(--text); font-size: .92rem; font-weight: 700; padding: .35rem .85rem; border: 1px solid var(--blue); border-radius: .6rem; }
 .site-header nav a:hover, .site-header nav a:focus-visible { color: var(--bg); background: var(--teal); border-color: var(--teal); }
