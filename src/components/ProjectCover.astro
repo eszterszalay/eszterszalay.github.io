@@ -5,11 +5,13 @@ interface Props {
   projectId: string;
   motif: 'fiber' | 'map' | 'plan';
   cover?: { src: string; alt: string };
+  link?: { href: string; label: string };
 }
-const { projectId, motif, cover } = Astro.props;
+const { projectId, motif, cover, link } = Astro.props;
+const CoverElement = link ? 'a' : 'div';
 const label = { fiber: 'Mérési fotó helye', map: 'Térképexport helye', plan: 'Tervrajz helye' }[motif];
 ---
-<div class:list={['project-cover', motif]}>
+<CoverElement class:list={['project-cover', motif]} href={link?.href} aria-label={link?.label}>
   {cover ? <img src={projectMediaUrl(projectId, cover.src)} alt={cover.alt} loading="lazy" decoding="async" /> : (
     <>
       <div class="cover-art" aria-hidden="true">
@@ -18,4 +20,4 @@ const label = { fiber: 'Mérési fotó helye', map: 'Térképexport helye', plan
       <span class="cover-label">{label}</span>
     </>
   )}
-</div>
+</CoverElement>

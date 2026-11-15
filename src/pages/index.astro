@@ -28,7 +28,12 @@ const home = import.meta.env.BASE_URL;
     <div class="project-grid">
       {projects.map(({ id, data }) => (
         <article class:list={['project-card', { 'project-card-in-progress': data.inProgress }]}>
-          <ProjectCover projectId={id} motif={data.motif} cover={data.cover} />
+          <ProjectCover
+            projectId={id}
+            motif={data.motif}
+            cover={data.cover}
+            link={!data.inProgress && data.cover ? { href: `${home}projektek/${id}/`, label: data.title } : undefined}
+          />
           <div class="card-body">
             {!data.inProgress && <p class="status">{data.status}</p>}
             <h3>{data.inProgress ? data.title : <a href={`${home}projektek/${id}/`}>{data.title}</a>}</h3>
