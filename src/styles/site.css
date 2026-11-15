@@ -48,11 +48,12 @@ section[id] { scroll-margin-top: 1.25rem; }
   position: absolute;
   inset: auto 0 0;
   aspect-ratio: 1903 / 826;
-  background: var(--hero-cover) center / 100% 100% no-repeat;
+  max-height: 100%;
+  background: var(--hero-cover) center bottom / contain no-repeat;
   mask-image: linear-gradient(to bottom, transparent, black 24%, black 86%, transparent);
   pointer-events: none;
 }
-.hero-layout { position: relative; min-height: max(29rem, calc(100vw * 826 / 1903)); display: grid; grid-template-columns: minmax(0, 1fr) minmax(10rem, 25%); align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem); padding-block: clamp(3.5rem, 8vw, 7rem); }
+.hero-layout { position: relative; min-height: max(26.1rem, calc(90vw * 826 / 1903)); display: grid; grid-template-columns: minmax(0, 1fr) minmax(10rem, 25%); align-items: center; gap: clamp(1.5rem, 4vw, 3.5rem); padding-block: clamp(3.15rem, 7.2vw, 6.3rem); }
 .hero-copy { position: relative; z-index: 1; }
 .eyebrow { color: var(--teal); font-size: .77rem; font-weight: 700; text-transform: uppercase; letter-spacing: .15em; margin-bottom: .8rem; }
 .hero h1 { font-size: clamp(1.8rem, 4.2vw, 3.8625rem); letter-spacing: -.065em; }
@@ -131,8 +132,9 @@ section[id] { scroll-margin-top: 1.25rem; }
 .contact { border-top: 1px solid var(--line); padding-block: 3rem; }
 .contact dl { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .8rem; margin: 1.2rem 0 0; }
 .contact dl div { border: 1px solid var(--line); border-radius: .5rem; padding: .8rem 1rem; }
-.contact dt { color: var(--blue); font-weight: 700; }
-.contact dd { margin: 0; color: var(--muted); font-size: .9rem; }
+.contact dt { display: flex; align-items: center; gap: .55rem; color: var(--blue); font-weight: 700; }
+.contact-icon { display: grid; flex: 0 0 24px; width: 24px; height: 24px; place-items: center; object-fit: contain; font-size: 1.25rem; line-height: 1; }
+.contact dd { margin: .3rem 0 0; color: var(--muted); font-size: .9rem; overflow-wrap: anywhere; }
 .footer { border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
 
 .detail { max-width: 1040px; padding-block: 3rem 5rem; isolation: isolate; }

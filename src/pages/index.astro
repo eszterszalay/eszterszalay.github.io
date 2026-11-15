@@ -58,9 +58,14 @@ const home = import.meta.env.BASE_URL;
   <section class="shell contact" id="kapcsolat" aria-labelledby="contact-title">
     <h2 id="contact-title">Kapcsolat</h2>
     <dl>
-      <div><dt>GitHub</dt><dd>Profilhivatkozás helye</dd></div>
-      <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/eszterszalay/">www.linkedin.com/in/eszterszalay</a></dd></div>
-      <div><dt>E-mail</dt><dd><a href="mailto:szalayeszterv@gmail.com">szalayeszterv@gmail.com</a></dd></div>
+      <div>
+        <dt><img class="contact-icon" src={`${home}media/rolam/linkedin_ikon.png`} width="24" height="24" alt="" />LinkedIn</dt>
+        <dd><a href="https://www.linkedin.com/in/eszterszalay/">www.linkedin.com/in/eszterszalay</a></dd>
+      </div>
+      <div>
+        <dt><span class="contact-icon" aria-hidden="true">✉</span>E-mail</dt>
+        <dd><a href="mailto:szalayeszterv@gmail.com">szalayeszterv@gmail.com</a></dd>
+      </div>
     </dl>
   </section>
 </Base>
