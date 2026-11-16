@@ -56,8 +56,27 @@ const home = import.meta.env.BASE_URL;
       <div class="skills">
         <h3>Szakterületek és érdeklődési körök</h3>
         <ul class="tags"><li>Optikai távközlés</li><li>Mobilhálózatok</li><li>Mikrohullámú technológiák</li><li>Hálózati infrastruktúrák</li></ul>
-        <h3>Alkalmazott eszközök</h3>
+        <h3>Szoftverismeretek</h3>
         <ProjectSoftware software={['arcgis-pro', 'excel', 'autocad']} excelLabel="Microsoft Excel" />
+        <h3>Képzések és tanúsítványok</h3>
+        <ul class="training-list">
+          <li>
+            <a href={`${home}media/rolam/tanusitvanyok/arcgis-pro-essential-training.pdf`} data-certificate={`${home}media/rolam/tanusitvanyok/arcgis-pro-essential-training.png`} aria-haspopup="dialog">
+              <strong>ArcGIS Pro Essential Training</strong><span>LinkedIn Learning, 2026</span>
+            </a>
+          </li>
+          <li>
+            <a href={`${home}media/rolam/tanusitvanyok/autocad-2026-essential-training.pdf`} data-certificate={`${home}media/rolam/tanusitvanyok/autocad-2026-essential-training.png`} aria-haspopup="dialog">
+              <strong>AutoCAD 2026 Essential Training</strong><span>LinkedIn Learning, 2026</span>
+            </a>
+          </li>
+        </ul>
+        <dialog class="training-dialog" aria-label="Képzési tanúsítvány">
+          <div class="dialog-toolbar">
+            <form method="dialog"><button autofocus>Bezárás ×</button></form>
+          </div>
+          <div class="dialog-viewport"><img alt="" /></div>
+        </dialog>
       </div>
     </div>
   </section>
@@ -77,6 +96,22 @@ const home = import.meta.env.BASE_URL;
 </Base>
 
 <script>
+  const certificateDialog = document.querySelector<HTMLDialogElement>('.training-dialog');
+  const certificateImage = certificateDialog?.querySelector('img');
+  if (certificateDialog && certificateImage) {
+    document.querySelectorAll<HTMLAnchorElement>('[data-certificate]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const source = link.dataset.certificate;
+        if (!source || !certificateDialog.showModal || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        certificateImage.src = source;
+        certificateImage.alt = link.querySelector('strong')?.textContent ?? 'Képzési tanúsítvány';
+        certificateDialog.showModal();
+      });
+    });
+    certificateDialog.addEventListener('close', () => certificateImage.removeAttribute('src'));
+  }
+
   const hero = document.querySelector<HTMLElement>('.hero');
   const actions = hero?.querySelector('.hero-actions');
   const copy = hero?.querySelector('.hero-copy');

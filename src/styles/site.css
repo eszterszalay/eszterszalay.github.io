@@ -82,6 +82,11 @@ section[id] { scroll-margin-top: 1.25rem; }
 .skills { margin-top: 1.5rem; }
 .skills h3 { font-size: 1rem; margin-bottom: .65rem; }
 .skills ul + h3 { margin-top: 1.15rem; }
+.skills .project-software + h3 { margin-top: 1.15rem; }
+.training-list { display: grid; width: min(100%, 26rem); gap: .75rem; margin: 0; padding: 0; list-style: none; }
+.training-list a { display: block; height: 100%; padding: .8rem 1rem; border: 1px solid var(--line); border-radius: .5rem; background: var(--panel); text-decoration: none; }
+.training-list a:hover, .training-list a:focus-visible { border-color: var(--teal); }
+.training-list span { display: block; color: var(--muted); font-size: .9rem; }
 .tags { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0; padding: 0; list-style: none; }
 .tags li { border: 1px solid #34506b; border-radius: .35rem; padding: .13rem .55rem; color: var(--blue); font-size: .81rem; }
 
@@ -292,11 +297,12 @@ section[id] { scroll-margin-top: 1.25rem; }
   .gallery-caption-columns { grid-template-columns: 1fr; }
 }
 .gallery-controls, .dialog-toolbar { display: flex; align-items: center; gap: .75rem; margin-top: .75rem; }
-.gallery button { min-height: 44px; min-width: 44px; border: 1px solid #587997; border-radius: .3rem; background: var(--panel); color: var(--blue); font: inherit; cursor: pointer; }
+.gallery button, .training-dialog button { min-height: 44px; min-width: 44px; border: 1px solid #587997; border-radius: .3rem; background: var(--panel); color: var(--blue); font: inherit; cursor: pointer; }
 .gallery-controls button { min-height: 176px; }
-.gallery button:hover { border-color: var(--teal); color: var(--teal); }
-.gallery dialog { width: min(96vw, 1100px); max-height: 94dvh; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: .6rem; }
-.gallery dialog::backdrop { background: #030b16de; }
+.gallery button:hover, .training-dialog button:hover { border-color: var(--teal); color: var(--teal); }
+.gallery dialog, .training-dialog { width: min(96vw, 1100px); max-height: 94dvh; color: var(--text); background: var(--bg); border: 1px solid var(--line); border-radius: .6rem; }
+.training-dialog { max-width: 780px; }
+.gallery dialog::backdrop, .training-dialog::backdrop { background: #030b16de; }
 .dialog-toolbar { flex-wrap: wrap; margin: 0 0 1rem; }
 .dialog-toolbar form { margin-inline-start: auto; }
 .dialog-toolbar button { padding-inline: .65rem; }
